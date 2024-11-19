@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Character Details</h2>
+
+<p>ID: {{ character.id_character }}</p>
+<p>Etat: {{ character.etat }}</p>
+<p>Lieu: {{ character.lieu }}</p>  <h3>Move Character</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Move Character</button>
+</form>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif   
+ %}
+
+{% endblock %}

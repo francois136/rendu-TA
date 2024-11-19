@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Management</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}"> </head>
+<body>
+    <header>
+        <h1>Character Management System</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'character_list' %}">Characters List</a>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ year }} Your Name</p>
+    </footer>
+
+    <script src="{% static 'script.js' %}"></script>  </body>
+</html>

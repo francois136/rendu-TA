@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Character List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Etat</th>
+            <th>Lieu</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for character in characters %}
+        <tr>
+            <td>{{ character.id_character }}</td>
+            <td>{{ character.etat }}</td>
+            <td>{{ character.lieu }}</td>  <td><a href="{% url 'character_detail' id_character=character.id_character %}">Details</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
