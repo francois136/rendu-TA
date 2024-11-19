@@ -1,16 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Character Management</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}"> </head>
+    <title>entraînement</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
 <body>
-    <header>
-        <h1>Character Management System</h1>
+    <header class="page-header">
+        <h1><a href="{% url 'character_list' %}">Attribution des activités</a></h1>
     </header>
 
-    <nav>
-        <a href="{% url 'character_list' %}">Characters List</a>
+    <nav class="top-menu">
+        <a href="{% url 'character_list' %}">Liste des personnes</a>
     </nav>
 
     <main>
@@ -18,9 +20,8 @@
         {% endblock %}
     </main>
 
-    <footer>
-        <p>&copy; {{ year }} Your Name</p>
+    <footer class="page-footer">
+        <p> </p>
     </footer>
-
-    <script src="{% static 'script.js' %}"></script>  </body>
+</body>
 </html>

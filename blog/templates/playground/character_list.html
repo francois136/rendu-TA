@@ -1,26 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'playground/base.html' %}
 
 {% block content %}
-<h2>Character List</h2>
+<h2>participants</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Etat</th>
-            <th>Lieu</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for character in characters %}
-        <tr>
-            <td>{{ character.id_character }}</td>
-            <td>{{ character.etat }}</td>
-            <td>{{ character.lieu }}</td>  <td><a href="{% url 'character_detail' id_character=character.id_character %}">Details</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+<div class="character-grid">
+    {% for character in characters %}
+    <div class="character-item">
+        <img src="{{ character.lieu.photo.url }}" alt="{{ character.lieu.nom }}" class="character-image">
+        <p><strong>nom:</strong> {{ character.id_character }}</p>
+        <p><strong>état:</strong> {{ character.etat }}</p>
+        <p><strong>activité:</strong> {{ character.lieu }}</p>
+        <a href="{% url 'character_detail' id_character=character.id_character %}" class="btn-default">Details</a>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

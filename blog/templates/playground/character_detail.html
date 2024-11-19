@@ -1,0 +1,32 @@
+{% extends 'playground/base.html' %}
+
+{% block content %}
+<h2>Character Details</h2>
+
+<div class="character-details">
+    <img src="{{ character.lieu.photo.url }}" alt="{{ character.lieu.nom }}" class="character-image">
+    <p><strong>nom:</strong> {{ character.id_character }}</p>
+    <p><strong>état:</strong> {{ character.etat }}</p>
+    <p><strong>lieu:</strong> {{ character.lieu }}</p>
+    <p><strong>Capacité Max:</strong> {{ character.lieu.capacite_max }}</p>
+    <p><strong>Nombre Actuel:</strong> {{ character.lieu.nombre_actuel }}</p>
+</div>
+
+<h3>changer d'activité</h3>
+<form method="post" class="move-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="action" value="piscine" class="btn-default">Piscine</button>
+    <button type="submit" name="action" value="velo" class="btn-default">Vélo</button>
+    <button type="submit" name="action" value="piste" class="btn-default">Piste</button>
+    <button type="submit" name="action" value="maison" class="btn-default">Maison</button>
+</form>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
